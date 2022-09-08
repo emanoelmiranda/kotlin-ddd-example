@@ -11,15 +11,16 @@ import org.springframework.context.annotation.Configuration
 class OpenApiConfiguration {
 
     @Bean
-    fun customOpenAPI(@Value("\${springdoc.version}") appVersion: String?): OpenAPI? {
+    fun customOpenAPI(
+        @Value("\${springdoc.version}") appVersion: String?
+    ): OpenAPI? {
         return OpenAPI().info(
             Info().title("Controller API")
                 .version(appVersion)
                 .description("This is a sample server created using springdocs - a library for OpenAPI 3 with spring boot.")
                 .termsOfService("http://swagger.io/terms/")
                 .license(
-                    License().name("Apache 2.0")
-                        .url("http://springdoc.org")
+                    License().name("Apache 2.0").url("http://springdoc.org")
                 )
         )
     }
