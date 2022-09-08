@@ -1,4 +1,4 @@
-# Kotlin DDD Example
+# Kotlin DDD Example (under construction)
 
 ##### This is a project based at DDD concepts using Spring Boot
 
