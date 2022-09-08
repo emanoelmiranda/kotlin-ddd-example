@@ -7,12 +7,12 @@ import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Component
 
 @Component
-class PublishEvent(
+class PublishEvent<Any>(
     private val applicationEventPublisher: ApplicationEventPublisher
-): PublishDomainEvent<DomainEvent<Any>> {
+): PublishDomainEvent<Any> {
 
     @Async(value = "PublisherEventExecutor")
-    override fun publish(event: DomainEvent<DomainEvent<Any>>) {
+    override fun publish(event: DomainEvent<Any>) {
         applicationEventPublisher.publishEvent(event)
     }
 }

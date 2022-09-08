@@ -3,7 +3,9 @@ plugins {
     id 'application'
     id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+
     id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+    id 'org.jetbrains.kotlin.plugin.allopen' version '1.7.10'
 }
 
 group = 'com.example.contacts'
@@ -16,11 +18,20 @@ repositories {
     mavenCentral()
 }
 
-apply plugin: 'application'
+allOpen {
+    annotation('org.springframework.context.annotation.Configuration')
+}
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-allopen:1.6.20'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.7.10'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.10'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10'
+
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

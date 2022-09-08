@@ -5,9 +5,7 @@ import org.springframework.context.annotation.Configuration
 import java.util.concurrent.Executors
 
 @Configuration
-class ThreadPoolExecutors {
-
+class ThreadPoolExecutorsConfiguration {
     @Bean("PublisherEventExecutor")
-    fun eventsExecutor() =
-        Executors.newFixedThreadPool(1)
+    fun eventsExecutor() = Executors.newFixedThreadPool(1)
 }
